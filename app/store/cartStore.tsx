@@ -13,7 +13,7 @@ interface CartStore {
 export const useCartStore = create<CartStore>((set,get) => ({
     cart: [],
     addToCart: (product: Product) => {
-        const productInCart = get().cart.find((item : Product) => item.id === product.id);
+        {/**const productInCart = get().cart.find((item : Product) => item.id === product.id);
         if (productInCart) {
             set({
                 cart: get().cart.map((item: CartItem) =>
@@ -23,7 +23,7 @@ export const useCartStore = create<CartStore>((set,get) => ({
                 ),
             });
             return;
-        }
+        }*/}
         set({
             cart: [...get().cart, { ...product, quantity: 1 }],
         });
