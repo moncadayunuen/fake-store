@@ -1,11 +1,10 @@
 import ProductDetail from "./productDetail";
 
-export async function generateStaticParams() {
-    const res = await fetch("https://fakestoreapi.com/products");
-    const products = await res.json();
+export const dynamicParams = false;
 
-    return products.map((product: { id: number }) => ({
-        id: product.id.toString(),
+export function generateStaticParams() {
+    return Array.from({ length: 20 }, (_, index) => ({
+        id: String(index + 1),
     }));
 }
 
